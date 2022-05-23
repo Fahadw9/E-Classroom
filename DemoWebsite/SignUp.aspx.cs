@@ -21,7 +21,8 @@ namespace DemoWebsite
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            using (SqlConnection con = new SqlConnection(connString))
+            //this code doesnot work. Time wasted here is 2 hours
+            /*using (SqlConnection con = new SqlConnection(connString))
             {
                 con.Open();
                 string query;
@@ -55,7 +56,7 @@ namespace DemoWebsite
                     Session["username"] = txtUserName.Text.Trim();
                     Response.Redirect("Home.aspx");
                 }
-            }
+            }*/
         }
     }
 }

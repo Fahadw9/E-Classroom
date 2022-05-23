@@ -61,7 +61,7 @@
             <asp:RadioButton ID="rdStudent" Text="Student" GroupName="Sign Up As" runat="server" />
             <br />
             <br />
-            <p>By clicking Register, you agree to our <a target="_blank" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">terms and condition</a>.</p>
+            <p>By clicking Register, you agree to our <a target="_blank" href="">terms and condition</a>.</p>
             <br>
             <asp:Button ID="btnSave" Text="Sign Up Now" CssClass="roundbutton" runat="server" OnClick="btnSave_Click" />
             <br />
