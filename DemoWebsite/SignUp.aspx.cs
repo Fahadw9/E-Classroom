@@ -21,15 +21,14 @@ namespace DemoWebsite
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            //this code doesnot work. Time wasted here is 2 hours
-            /*using (SqlConnection con = new SqlConnection(connString))
+            using (SqlConnection con = new SqlConnection(connString))
             {
                 con.Open();
                 string query;
+                SqlCommand SQLCMD = new SqlCommand("StudentSignUp", con);
 
                 try
                 {
-                    SqlCommand SQLCMD = new SqlCommand("StudentSignUp", con);
                     SQLCMD.CommandType = CommandType.StoredProcedure;
 
                     SQLCMD.Parameters.Add("@email", SqlDbType.VarChar, 30);
@@ -38,25 +37,33 @@ namespace DemoWebsite
                     SQLCMD.Parameters.Add("@age", SqlDbType.Int);
                     SQLCMD.Parameters.Add("@address", SqlDbType.VarChar, 50);
                     SQLCMD.Parameters.Add("@contact_no", SqlDbType.VarChar, 11);
-                    SQLCMD.Parameters.Add("@roll_no", SqlDbType.Int);
+                    //SQLCMD.Parameters.Add("@roll_no", SqlDbType.Int);
                     SQLCMD.Parameters.Add("@check", SqlDbType.VarChar, 20);
 
-                }
-                catch (Exception)
-                {
+                    SQLCMD.Parameters["@email"].Value = Email.Text;
+                    SQLCMD.Parameters["@name"].Value = FullName.Text;
+                    SQLCMD.Parameters["@password"].Value = Password.Text;
+                    SQLCMD.Parameters["@age"].Value = Age.Text;
+                    SQLCMD.Parameters["@address"].Value = Address.Text;
+                    SQLCMD.Parameters["@contact_no"].Value = Contact_no.Text;
+                    SQLCMD.Parameters["@check"].Value = "";
 
-                    throw;
-                }
 
-                SQLCMD.Parameters.AddWithValue("@username", txtUserName.Text.Trim());
-                SQLCMD.Parameters.AddWithValue("@password", txtPassword.Text.Trim());
-                int count = Convert.ToInt32(SQLCMD.ExecuteScalar());
-                if (count == 1)
-                {
-                    Session["username"] = txtUserName.Text.Trim();
-                    Response.Redirect("Home.aspx");
+                    SQLCMD.ExecuteNonQuery();
+
+                    con.Close();
+
                 }
-            }*/
+                catch (SqlException ex)
+                {
+                    Console.WriteLine("SQL Error" + ex.Message.ToString());
+                }
+                finally
+                {
+                    con.Close();
+                    Response.Redirect("Default.aspx");
+                }
+            }
         }
     }
 }

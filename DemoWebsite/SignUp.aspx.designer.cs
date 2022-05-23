@@ -42,31 +42,13 @@ namespace DemoWebsite
         protected global::System.Web.UI.WebControls.Label labelId;
 
         /// <summary>
-        /// FirstName control.
+        /// FullName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox FirstName;
-
-        /// <summary>
-        /// label2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label label2;
-
-        /// <summary>
-        /// LastName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox LastName;
+        protected global::System.Web.UI.WebControls.TextBox FullName;
 
         /// <summary>
         /// label3 control.
@@ -78,13 +60,13 @@ namespace DemoWebsite
         protected global::System.Web.UI.WebControls.Label label3;
 
         /// <summary>
-        /// TextBox3 control.
+        /// Email control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox3;
+        protected global::System.Web.UI.WebControls.TextBox Email;
 
         /// <summary>
         /// label4 control.
@@ -96,13 +78,13 @@ namespace DemoWebsite
         protected global::System.Web.UI.WebControls.Label label4;
 
         /// <summary>
-        /// TextBox4 control.
+        /// Password control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox4;
+        protected global::System.Web.UI.WebControls.TextBox Password;
 
         /// <summary>
         /// label6 control.
@@ -114,13 +96,13 @@ namespace DemoWebsite
         protected global::System.Web.UI.WebControls.Label label6;
 
         /// <summary>
-        /// TextBox1 control.
+        /// Address control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox Address;
 
         /// <summary>
         /// label5 control.
@@ -132,13 +114,13 @@ namespace DemoWebsite
         protected global::System.Web.UI.WebControls.Label label5;
 
         /// <summary>
-        /// TextBox2 control.
+        /// Contact_no control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected global::System.Web.UI.WebControls.TextBox Contact_no;
 
         /// <summary>
         /// label1 control.
@@ -150,13 +132,13 @@ namespace DemoWebsite
         protected global::System.Web.UI.WebControls.Label label1;
 
         /// <summary>
-        /// Calendar1 control.
+        /// Age control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar Calendar1;
+        protected global::System.Web.UI.WebControls.TextBox Age;
 
         /// <summary>
         /// Label7 control.

@@ -33,27 +33,23 @@
             <br />
             <p>SIGN UP PAGE</p>
 
-            <asp:Label ID="labelId" runat="server">First Name</asp:Label>
-            <asp:TextBox ID="FirstName" runat="server" ToolTip="Enter First Name"></asp:TextBox>
-
-            <asp:Label ID="label2" runat="server">Last Name</asp:Label>
-            <asp:TextBox ID="LastName" runat="server" ToolTip="Enter Last Name"></asp:TextBox>
-            <br />
-            <br />
+            <asp:Label ID="labelId" runat="server">Full Name</asp:Label>
+            <asp:TextBox ID="FullName" runat="server" ToolTip="Enter Full Name"></asp:TextBox>
+            <br><br>
             <asp:Label ID="label3" runat="server">Email Address</asp:Label>
-            <asp:TextBox ID="TextBox3" runat="server" ToolTip="Enter User Name"></asp:TextBox>
+            <asp:TextBox ID="Email" runat="server" ToolTip="Enter User Name"></asp:TextBox>
             <asp:Label ID="label4" runat="server">Password</asp:Label>
-            <asp:TextBox ID="TextBox4" TextMode="password" runat="server" ToolTip="Enter Password"></asp:TextBox>
+            <asp:TextBox ID="Password" TextMode="password" runat="server" ToolTip="Enter Password"></asp:TextBox>
             <br />
             <br />
             <asp:Label ID="label6" runat="server">Permanent Address</asp:Label>
-            <asp:TextBox ID="TextBox1" runat="server" ToolTip="Enter your home address"></asp:TextBox>
+            <asp:TextBox ID="Address" runat="server" ToolTip="Enter your home address"></asp:TextBox>
             <asp:Label ID="label5" runat="server">Contact Number</asp:Label>
-            <asp:TextBox ID="TextBox2" runat="server" ToolTip="Enter your phone number"></asp:TextBox>
+            <asp:TextBox ID="Contact_no" runat="server" ToolTip="Enter your phone number"></asp:TextBox>
             <br />
             <br />
-            <asp:Label ID="label1" runat="server">Select the Date of Birth</asp:Label>
-            <asp:Calendar ID="Calendar1" runat="server"></asp:Calendar>
+            <asp:Label ID="label1" runat="server">Age</asp:Label>
+            <asp:TextBox ID="Age" runat="server" ToolTip="Enter your age"></asp:TextBox>
             <br />
             <br />
             <asp:Label ID="Label7" runat="server">Sign Up As</asp:Label>

@@ -25,8 +25,8 @@ namespace DemoWebsite
                 con.Open();
                 string query = "SELECT COUNT(1) FROM student WHERE email=@username AND password=@password";
                 SqlCommand SQLCMD = new SqlCommand(query, con);
-                SQLCMD.Parameters.AddWithValue("@username", txtUserName.Text.Trim());
-                SQLCMD.Parameters.AddWithValue("@password", txtPassword.Text.Trim());
+                SQLCMD.Parameters.AddWithValue("@username", txtUserName.Text);
+                SQLCMD.Parameters.AddWithValue("@password", txtPassword.Text);
                 int count = Convert.ToInt32(SQLCMD.ExecuteScalar());
                 if (count == 1) {
                     Session["username"] = txtUserName.Text.Trim();
