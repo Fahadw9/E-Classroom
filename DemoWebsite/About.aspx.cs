@@ -51,8 +51,10 @@ namespace DemoWebsite
 
 
                 }
+
                 else
                 {
+
                     con.Open();
                     SqlCommand com = con.CreateCommand();
                     com.CommandText = "Teacher_View_Profile";
@@ -66,11 +68,11 @@ namespace DemoWebsite
                     if (dr.HasRows)
                     {
                         dr.Read();
-                        FullName.Text = Convert.ToString(dr["NAME"]);
                         Address.Text = Convert.ToString(dr["address"]);
                         Contact_no.Text = Convert.ToString(dr["contact_no"]);
                         Password.Text = Convert.ToString(dr["password"]);
                         Age.Text = Convert.ToString(dr["age"]);
+                        FullName.Text = Convert.ToString(dr["NAME"]);
                     }
 
                     con.Close();
