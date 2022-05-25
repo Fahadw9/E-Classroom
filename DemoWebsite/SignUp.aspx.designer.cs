@@ -33,6 +33,15 @@ namespace DemoWebsite
         protected global::System.Web.UI.WebControls.Image Image2;
 
         /// <summary>
+        /// l2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label l2;
+
+        /// <summary>
         /// labelId control.
         /// </summary>
         /// <remarks>

@@ -23,19 +23,20 @@ namespace DemoWebsite
         {
             using (SqlConnection con = new SqlConnection(connString))
             {
+                l2.Text = "Sign Up Page";
                 con.Open();
                 //string query;
                 SqlCommand SQLCMD;
 
                 if (rdStudent.Checked)
                 {
-                     SQLCMD = new SqlCommand("StudentSignUp", con);
+                    SQLCMD = new SqlCommand("StudentSignUp", con);
                 }
                 else
                 {
-                    SQLCMD = new SqlCommand("TeacherSignUp", con); 
+                    SQLCMD = new SqlCommand("TeacherSignUp", con);
                 }
-                
+
                 try
                 {
                     SQLCMD.CommandType = CommandType.StoredProcedure;
@@ -65,13 +66,14 @@ namespace DemoWebsite
                 }
                 catch (SqlException ex)
                 {
-                    Console.WriteLine("SQL Error" + ex.Message.ToString());
+                    l2.Text = "Sign Up Unsuccessful";
+
                 }
-                finally
+/*                finally
                 {
                     con.Close();
                     Response.Redirect("Default.aspx");
-                }
+                }*/
             }
         }
     }

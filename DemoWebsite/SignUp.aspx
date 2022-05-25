@@ -31,7 +31,7 @@
         <div class="center">
             <asp:Image ID="Image2" ImageUrl="https://www.catchupkids.co.za/wp-content/uploads/2018/05/E-Classroom-Logo.jpg" AlternateText="E-Classroom Logo" runat="server" />
             <br />
-            <p>SIGN UP PAGE</p>
+            <p><asp:Label ID="l2" runat="server">SIGN UP PAGE</asp:Label></p>
 
             <asp:Label ID="labelId" runat="server">Full Name</asp:Label>
             <asp:TextBox ID="FullName" runat="server" ToolTip="Enter Full Name"></asp:TextBox>
@@ -62,6 +62,7 @@
             <asp:Button ID="btnSave" Text="Sign Up Now" CssClass="roundbutton" runat="server" OnClick="btnSave_Click" />
             <br />
             <br />
+            <a href="default.aspx">Sign In?
         </div>
     </form>
 </body>
