@@ -15,7 +15,7 @@
             <asp:TextBox ID="FullName" runat="server" ToolTip="Enter Full Name"></asp:TextBox>
             <br><br>
             <asp:Label ID="label4" runat="server">Password</asp:Label>
-            <asp:TextBox ID="Password" TextMode="password" runat="server" ToolTip="Enter Password"></asp:TextBox>
+            <asp:TextBox ID="Password"  runat="server" ToolTip="Enter Password"></asp:TextBox>
             <br />
             <br />
             <asp:Label ID="label6" runat="server">Permanent Address</asp:Label>

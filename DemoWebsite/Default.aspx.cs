@@ -33,6 +33,7 @@ namespace DemoWebsite
                     if (count == 1)
                     {
                         Session["username"] = txtUserName.Text.Trim();
+                        Session["usertype"] = "student";
                         Response.Redirect("Home.aspx");
                     }
                 }
@@ -45,6 +46,7 @@ namespace DemoWebsite
                     if (count == 1)
                     {
                         Session["username"] = txtUserName.Text.Trim();
+                        Session["usertype"] = "teacher";
                         Response.Redirect("Home.aspx");
                     }
                 }
