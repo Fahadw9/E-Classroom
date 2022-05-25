@@ -31,7 +31,7 @@
         <div class="center">
             <asp:Image ID="Image2" ImageUrl="https://www.catchupkids.co.za/wp-content/uploads/2018/05/E-Classroom-Logo.jpg" AlternateText="E-Classroom Logo" runat="server" />
             <br />
-            <p>Sign In</p>
+            <p><asp:Label ID="l1" runat="server">Sign In</asp:Label></p>
             <asp:Label ID="label3" runat="server">Email Address</asp:Label>
             <asp:TextBox ID="txtUserName" runat="server" ToolTip="Enter User Name"></asp:TextBox>
             <br />

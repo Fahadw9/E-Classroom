@@ -22,6 +22,7 @@ namespace DemoWebsite
         protected void btnSave_Click(object sender, EventArgs e)
         {
             using (SqlConnection con = new SqlConnection(connString)) {
+                l1.Text = "Sign In";
                 con.Open();
                 if (rdStudent.Checked)
                 {
@@ -50,9 +51,9 @@ namespace DemoWebsite
                         Response.Redirect("Home.aspx");
                     }
                 }
-                else
+                else if(!rdStudent.Checked && !rdTeacher.Checked)
                 {
-                    Console.WriteLine("No Option Selected");
+                    l1.Text = "No Option Selected";
                 }
             }
         }
