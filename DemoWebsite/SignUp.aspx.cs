@@ -24,9 +24,18 @@ namespace DemoWebsite
             using (SqlConnection con = new SqlConnection(connString))
             {
                 con.Open();
-                string query;
-                SqlCommand SQLCMD = new SqlCommand("StudentSignUp", con);
+                //string query;
+                SqlCommand SQLCMD;
 
+                if (rdStudent.Checked)
+                {
+                     SQLCMD = new SqlCommand("StudentSignUp", con);
+                }
+                else
+                {
+                    SQLCMD = new SqlCommand("TeacherSignUp", con); 
+                }
+                
                 try
                 {
                     SQLCMD.CommandType = CommandType.StoredProcedure;
@@ -38,7 +47,7 @@ namespace DemoWebsite
                     SQLCMD.Parameters.Add("@address", SqlDbType.VarChar, 50);
                     SQLCMD.Parameters.Add("@contact_no", SqlDbType.VarChar, 11);
                     //SQLCMD.Parameters.Add("@roll_no", SqlDbType.Int);
-                    SQLCMD.Parameters.Add("@check", SqlDbType.VarChar, 20);
+                    //SQLCMD.Parameters.Add("@check", SqlDbType.VarChar, 20);
 
                     SQLCMD.Parameters["@email"].Value = Email.Text;
                     SQLCMD.Parameters["@name"].Value = FullName.Text;
@@ -46,7 +55,7 @@ namespace DemoWebsite
                     SQLCMD.Parameters["@age"].Value = Age.Text;
                     SQLCMD.Parameters["@address"].Value = Address.Text;
                     SQLCMD.Parameters["@contact_no"].Value = Contact_no.Text;
-                    SQLCMD.Parameters["@check"].Value = "";
+                    //SQLCMD.Parameters["@check"].Value = "";
 
 
                     SQLCMD.ExecuteNonQuery();

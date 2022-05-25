@@ -23,15 +23,35 @@ namespace DemoWebsite
         {
             using (SqlConnection con = new SqlConnection(connString)) {
                 con.Open();
-                string query = "SELECT COUNT(1) FROM student WHERE email=@username AND password=@password";
-                SqlCommand SQLCMD = new SqlCommand(query, con);
-                SQLCMD.Parameters.AddWithValue("@username", txtUserName.Text);
-                SQLCMD.Parameters.AddWithValue("@password", txtPassword.Text);
-                int count = Convert.ToInt32(SQLCMD.ExecuteScalar());
-                if (count == 1) {
-                    Session["username"] = txtUserName.Text.Trim();
-                    Response.Redirect("Home.aspx");
-                }  
+                if (rdStudent.Checked)
+                {
+                    string query = "SELECT COUNT(1) FROM student WHERE email=@username AND password=@password";
+                    SqlCommand SQLCMD = new SqlCommand(query, con);
+                    SQLCMD.Parameters.AddWithValue("@username", txtUserName.Text);
+                    SQLCMD.Parameters.AddWithValue("@password", txtPassword.Text);
+                    int count = Convert.ToInt32(SQLCMD.ExecuteScalar());
+                    if (count == 1)
+                    {
+                        Session["username"] = txtUserName.Text.Trim();
+                        Response.Redirect("Home.aspx");
+                    }
+                }
+                else if (rdTeacher.Checked) {
+                    string query = "SELECT COUNT(1) FROM teacher WHERE email=@username AND password=@password";
+                    SqlCommand SQLCMD = new SqlCommand(query, con);
+                    SQLCMD.Parameters.AddWithValue("@username", txtUserName.Text);
+                    SQLCMD.Parameters.AddWithValue("@password", txtPassword.Text);
+                    int count = Convert.ToInt32(SQLCMD.ExecuteScalar());
+                    if (count == 1)
+                    {
+                        Session["username"] = txtUserName.Text.Trim();
+                        Response.Redirect("Home.aspx");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("No Option Selected");
+                }
             }
         }
     }
