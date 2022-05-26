@@ -14,6 +14,7 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
 using DemoWebsite.DAL;
+using System.Windows.Forms;
 
 namespace DemoWebsite
 {
@@ -55,11 +56,14 @@ namespace DemoWebsite
             using (SqlConnection con = new SqlConnection(connString))
             {
                 l7.Text = "Modify Credentials For Updation";
-                con.Open();
                 SqlCommand SQLCMD;
                 SQLCMD = new SqlCommand("Update_Student_Profile", con);
 
+                //trigger
+                con.InfoMessage += new SqlInfoMessageEventHandler(conn_InfoMessage);
+                con.FireInfoMessageEventOnUserErrors = true;
 
+                con.Open();
                 try
                 {
                     SQLCMD.CommandType = CommandType.StoredProcedure;
@@ -91,6 +95,10 @@ namespace DemoWebsite
                     l7.Text = "Update Unsuccessful";
                 }
             }
+        }
+        static void conn_InfoMessage(object sender, SqlInfoMessageEventArgs e)
+        {
+            MessageBox.Show(e.Message);
         }
     }
 }
