@@ -32,5 +32,6 @@
             <asp:Button ID="btnSave" Text="Edit Profile" CssClass="roundbutton" runat="server" OnClick="btnSave_Click" />
             <br />
             <br />
+            <asp:Label ID="l7" runat="server">Modify Credentials For Updation</asp:Label>
         </div>
 </asp:Content>

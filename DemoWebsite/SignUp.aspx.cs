@@ -67,7 +67,6 @@ namespace DemoWebsite
                 catch (SqlException ex)
                 {
                     l2.Text = "Sign Up Unsuccessful";
-
                 }
 /*                finally
                 {

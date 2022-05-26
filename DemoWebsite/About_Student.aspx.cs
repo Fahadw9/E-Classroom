@@ -22,9 +22,9 @@ namespace DemoWebsite
         private static readonly string connString = System.Configuration.ConfigurationManager.ConnectionStrings["SQLDbConnection"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (this.IsPostBack) return;
             using (SqlConnection con = new SqlConnection(connString))
             {
-
                 con.Open();
                 SqlCommand com = con.CreateCommand();
                 com.CommandText = "Student_View_Profile";
@@ -52,6 +52,45 @@ namespace DemoWebsite
         }
         protected void btnSave_Click(object sender, EventArgs e)
         {
+            using (SqlConnection con = new SqlConnection(connString))
+            {
+                l7.Text = "Modify Credentials For Updation";
+                con.Open();
+                SqlCommand SQLCMD;
+                SQLCMD = new SqlCommand("Update_Student_Profile", con);
+
+
+                try
+                {
+                    SQLCMD.CommandType = CommandType.StoredProcedure;
+
+                    SQLCMD.Parameters.Add("@email", SqlDbType.VarChar, 30);
+                    SQLCMD.Parameters.Add("@name", SqlDbType.VarChar, 25);
+                    SQLCMD.Parameters.Add("@age", SqlDbType.Int);
+                    SQLCMD.Parameters.Add("@address", SqlDbType.VarChar, 50);
+                    SQLCMD.Parameters.Add("@contact_no", SqlDbType.VarChar, 11);
+                    SQLCMD.Parameters.Add("@password", SqlDbType.VarChar, 20);
+
+
+
+                    SQLCMD.Parameters["@email"].Value = Session["username"].ToString();
+                    SQLCMD.Parameters["@name"].Value = FullName.Text;
+                    SQLCMD.Parameters["@age"].Value = Age.Text;
+                    SQLCMD.Parameters["@address"].Value = Address.Text;
+                    SQLCMD.Parameters["@contact_no"].Value = Contact_no.Text;
+                    SQLCMD.Parameters["@password"].Value = Password.Text;
+
+
+                    SQLCMD.ExecuteNonQuery();
+
+                    con.Close();
+
+                }
+                catch (SqlException ex)
+                {
+                    l7.Text = "Update Unsuccessful";
+                }
+            }
         }
     }
 }
