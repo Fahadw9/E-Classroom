@@ -23,7 +23,7 @@
         <asp:CheckBox ID="CheckBox6" runat="server" />
         <asp:Label ID="Label5" runat="server" Text="Pakistan Studies"></asp:Label>
         <br><br>
-        <asp:Button ID="Button1" runat="server" Text="Enroll Now" />
+        <asp:Button ID="Button1" runat="server" Text="Enroll Now" OnClick ="btnSave_Click"/>
     </div>
 
 </asp:Content>
