@@ -57,6 +57,7 @@
                         <li><a runat="server" href="~/Quizzes">Quizzes</a></li>
                         <li><a runat="server" href="~/Attendance">Attendance</a></li>
                         <li><a runat="server" href="~/HelpingMaterial">Helping Material</a></li>
+                        <li><a runat="server" href="~/Registration">Course Registration</a></li>
                     </ul>
                 </div>
             </div>
