@@ -26,6 +26,12 @@ namespace DemoWebsite
         string str;
         protected void Page_Load(object sender, EventArgs e)
         {
+            /*
+            if (Session["usertype"].ToString() == "teacher")
+            {
+                Response.Redirect("Attendance_Teacher.aspx");
+            }
+            */
             if (!Page.IsPostBack)
             {
                 {
@@ -37,6 +43,22 @@ namespace DemoWebsite
 
                             Label1.Text = "Mark Attendance";
                             Label2.Text = "Mark Attendance";
+                            DDListClass.Items.Insert(0, new ListItem("--Select Class --", "0"));
+                            Cn.Open();
+                            string query = ("select DISTINCT course_name from enrollment where t_email= '" + Session["username"].ToString() + "'");
+                            SqlCommand cmd = new SqlCommand(query, Cn);
+                            SqlDataReader reader = cmd.ExecuteReader();
+                            int i = 1;
+                            while (reader.Read())
+                            {
+
+                                DDListClass.Items.Insert(i, new ListItem(reader[0].ToString(), i.ToString()));
+                                i++;
+                            }
+                            reader.Close();
+                            Date.Text = "Today is " + Convert.ToString(DateTime.Now.ToShortDateString());
+                            Cn.Close();
+
                         }
                         else
                         {
@@ -55,7 +77,7 @@ namespace DemoWebsite
                                 i++;
                             }
                             reader.Close();
-
+                            Cn.Close();
 
                           
 
@@ -77,31 +99,80 @@ namespace DemoWebsite
             using (SqlConnection Cn = new SqlConnection(connString))
             {
                 Cn.Open();
-                DataTable dt = new DataTable();
-                DataColumn dc = new DataColumn("Date", typeof(String));
-                dt.Columns.Add(dc);
-
-                dc = new DataColumn("Attendance", typeof(String));
-                dt.Columns.Add(dc);
-                DataRow dr = dt.NewRow();
-                String query = ("select attendance_date, classattendance from attendance where s_email= '" + Session["username"].ToString() + "' AND course = '" +DDListClass.SelectedItem.Text.Trim().ToString() + "'");
-                SqlCommand cmd = new SqlCommand(query, Cn);
-                SqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
+                if (Session["usertype"].ToString() == "teacher")
                 {
-                    dr[0] = reader[0].ToString().Substring(0, 10);
-                    dr[1] = reader[1].ToString();
-                    dt.Rows.Add(dr);
-                    dr = dt.NewRow();
+                    try
+                    {
+                        //Cn.Open();
+                        Da = new SqlDataAdapter("SELECT * FROM enrollment WHERE course_name='" + DDListClass.SelectedItem.Text.Trim() + "'", Cn);
+
+
+                        Ds = new DataSet();
+                        Da.Fill(Ds, "TempStud");
+                        Max = Ds.Tables["TempStud"].Rows.Count;
+
+                        if (Max > 0)
+                        {
+
+                            GridView1.DataSource = Ds.Tables["TempStud"];
+
+                            GridView1.DataBind();
+                            Cn.Close();
+
+                        }
+                        else
+                        {
+                            Ds.Tables["TempStud"].Rows.Add(Ds.Tables["TempStud"].NewRow());
+
+                            GridView1.DataSource = Ds;
+                            GridView1.DataBind();
+
+                            int GViewColumnCount = GridView1.Rows[0].Cells.Count;
+                            GridView1.Rows[0].Cells.Clear();
+                            GridView1.Rows[0].Cells.Add(new TableCell());
+                            GridView1.Rows[0].Cells[0].ColumnSpan = GViewColumnCount;
+
+                            GridView1.Rows[0].Cells[0].Text = "No Records Found.";
+
+                        }
+
+                        Cn.Close();
+                    }
+                    catch
+                    {
+                        Response.Write("<script language=javascript>alert('Database connection not found.')</script>");
+                        return;
+                    }
                 }
-                GridView2.DataSource = dt;
-                GridView2.DataBind();
+                else
+                {
+
+                    DataTable dt = new DataTable();
+                    DataColumn dc = new DataColumn("Date", typeof(String));
+                    dt.Columns.Add(dc);
+
+                    dc = new DataColumn("Attendance", typeof(String));
+                    dt.Columns.Add(dc);
+                    DataRow dr = dt.NewRow();
+                    String query = ("select attendance_date, classattendance from attendance where s_email= '" + Session["username"].ToString() + "' AND course = '" + DDListClass.SelectedItem.Text.Trim().ToString() + "'");
+                    SqlCommand cmd = new SqlCommand(query, Cn);
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        dr[0] = reader[0].ToString().Substring(0, 10);
+                        dr[1] = reader[1].ToString();
+                        dt.Rows.Add(dr);
+                        dr = dt.NewRow();
+                    }
+                    GridView2.DataSource = dt;
+                    GridView2.DataBind();
+                }
             }
                 
 
         }
 
-       /* public void Class_Onload()
+        public void Class_Onload()
         {
             using (SqlConnection Cn = new SqlConnection(connString))
             {
@@ -110,7 +181,7 @@ namespace DemoWebsite
                     try
                     {
                         Cn.Open();
-                        Da = new SqlDataAdapter("SELECT * FROM StudentDetails", Cn);
+                        Da = new SqlDataAdapter("SELECT * FROM student", Cn);
                         Ds = new DataSet();
                         Da.Fill(Ds, "TempClass");
                         Max = Ds.Tables["TempClass"].Rows.Count;
@@ -139,46 +210,44 @@ namespace DemoWebsite
                 }
 
             }
-        }*/
+        }
 
         protected void BtnSave_Click(object sender, EventArgs e)
         {
             using (SqlConnection Cn = new SqlConnection(connString))
             {
                 Cn.Open();
-                int rollno = 0;
+                String rollno = "";
                 String studentname = "", dateofclass = "", sclass = "", status = "";
 
                 foreach (GridViewRow row in GridView1.Rows)
                 {
 
-                    rollno = Convert.ToInt32(row.Cells[0].Text);
+                    rollno = Convert.ToString(row.Cells[0].Text);
                     studentname = row.Cells[1].Text;
-                    RadioButton rbtn1 = (row.Cells[2].FindControl("RadioButton1") as RadioButton);
-                    RadioButton rbtn2 = (row.Cells[2].FindControl("RadioButton2") as RadioButton);
+                    RadioButton rbtn1 = (row.Cells[1].FindControl("RadioButton1") as RadioButton);
+                    RadioButton rbtn2 = (row.Cells[1].FindControl("RadioButton2") as RadioButton);
 
                     if (rbtn1.Checked)
                     {
-                        status = "Present";
+                        status = "P";
 
                     }
                     else
                     {
-                        status = "Absent";
+                        status = "A";
                     }
                     dateofclass = DateTime.Now.ToShortDateString();
                     sclass = DDListClass.SelectedItem.Text;
 
                 }
 
-
-
-                str = "INSERT INTO Attendance(rollno , studentname , dateofclass , attendancestatus, class ) VALUES('" + rollno + "','" + studentname + "','" + dateofclass + "','" + status + "','" + sclass + "')";
-                //int x = Connection.UpdateRecord(Cn, str);
+                str = "INSERT INTO Attendance(attendance_date , course , s_email , classattendance) VALUES('" + dateofclass + "','" + sclass + "','" + rollno + "','" + status + "')";
+                SqlCommand SQLCMD = new SqlCommand(str, Cn);
+                SQLCMD.ExecuteScalar();
                 Cn.Close();
                 LblMsg.Visible = true;
                 LblMsg.Text = "Attendance Has Been Saved Successfully";
-
             }
         }
     }

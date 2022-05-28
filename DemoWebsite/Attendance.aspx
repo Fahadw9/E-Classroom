@@ -71,10 +71,8 @@
         CellPadding="3" CellSpacing="2" >
         <RowStyle BackColor="#FFF7E7" ForeColor="#8C4510" />
         <Columns>
-            <asp:BoundField DataField="rollno" HeaderText="Roll No."
-                SortExpression="rollno" />
-            <asp:BoundField DataField="studentname" HeaderText="Student Name"
-                SortExpression="studentname" />
+            <asp:BoundField DataField="s_email" HeaderText="Roll No."
+                SortExpression="s_email" />
             <asp:TemplateField HeaderText="Mark Attendance">
                 <ItemTemplate>
                     <asp:RadioButton ID="RadioButton1" runat="server" Checked="True" GroupName="G1"
