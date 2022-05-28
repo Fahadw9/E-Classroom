@@ -18,7 +18,7 @@
         <asp:Label ID="Label3" runat="server" Text="Physics"></asp:Label>
         <br><br>
         <asp:CheckBox ID="CheckBox4" runat="server" />
-        <asp:Label ID="Label4" runat="server" Text="Information Technology"></asp:Label>
+        <asp:Label ID="Label4" runat="server" Text="ICT"></asp:Label>
         <br><br>
         <asp:CheckBox ID="CheckBox6" runat="server" />
         <asp:Label ID="Label5" runat="server" Text="Pakistan Studies"></asp:Label>

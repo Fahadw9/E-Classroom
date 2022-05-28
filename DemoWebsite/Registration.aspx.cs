@@ -53,7 +53,7 @@ namespace DemoWebsite
                     CheckBox3.Enabled = false;
                 }
                 dr.Close();
-                com.Parameters["@course_name"].Value = "Information Technology";
+                com.Parameters["@course_name"].Value = "ICT";
                 dr = com.ExecuteReader();
                 if (dr.HasRows)
                 {
@@ -116,7 +116,7 @@ namespace DemoWebsite
                     SQLCMD = new SqlCommand("course_registration", con);
                     SQLCMD.CommandType = CommandType.StoredProcedure;
                     SQLCMD.Parameters.AddWithValue("@email", Session["username"].ToString());
-                    SQLCMD.Parameters.AddWithValue("@course_name", "Information Technology");
+                    SQLCMD.Parameters.AddWithValue("@course_name", "ICT");
                     CheckBox4.Enabled = false;
                     SQLCMD.ExecuteNonQuery();
                 }

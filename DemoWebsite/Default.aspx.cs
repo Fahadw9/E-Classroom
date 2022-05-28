@@ -46,6 +46,7 @@ namespace DemoWebsite
                     int count = Convert.ToInt32(SQLCMD.ExecuteScalar());
                     if (count == 1)
                     {
+                        
                         Session["username"] = txtUserName.Text.Trim();
                         Session["usertype"] = "teacher";
                         Response.Redirect("Home.aspx");

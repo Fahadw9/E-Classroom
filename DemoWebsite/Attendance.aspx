@@ -10,8 +10,7 @@
 
     <div>
  
-        <h1 >
-            Mark Attendance</h1>
+         <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
      
  
     </div>
@@ -29,25 +28,43 @@
             </td>
             <td>
                 <asp:DropDownList ID="DDListClass" runat="server"
-                    AutoPostBack="true"
+                    AutoPostBack="true"                   
                     onselectedindexchanged="DropDownList1_SelectedIndexChanged">
-                    <asp:ListItem Text="Programming Fundamentals" Value="CS"></asp:ListItem>
+                   <%-- <asp:ListItem Text="Programming Fundamentals" Value="CS"></asp:ListItem>
                     <asp:ListItem Text="Calculus 1" Value="CS"></asp:ListItem>
                     <asp:ListItem Text="Physics" Value="CS"></asp:ListItem>
-                    <asp:ListItem Text="Information Technology" Value="CS"></asp:ListItem>
-                    <asp:ListItem Text="Pakistan Studies" Value="CS"></asp:ListItem>
+                    <asp:ListItem Text="ICT" Value="CS"></asp:ListItem>
+                    <asp:ListItem Text="Pakistan Studies" Value="CS"></asp:ListItem>--%>
                 </asp:DropDownList>
             </td>
         </tr>
         <tr>
             <td>
-                &nbsp;</td>
+               Date: </td>
             <td>
-                &nbsp;</td>
+                <asp:TextBox ID="Date" runat="server" ToolTip="Enter Date in MM-DD-YY"></asp:TextBox>
+                </td>
         </tr>
     </table>
  
     <br />
+         
+
+    <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" 
+        BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px"
+        CellPadding="3" CellSpacing="2" >
+        <RowStyle BackColor="#FFF7E7" ForeColor="#8C4510" />
+         <Columns>
+             <asp:BoundField DataField="Date" HeaderText="Date"
+                SortExpression="Date" />
+            <asp:BoundField DataField="Attendance" HeaderText="Attendance"
+                 />
+             </Columns>
+        <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
+        <PagerStyle ForeColor="#8C4510" HorizontalAlign="Center" />
+        <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="White" />
+        <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
+    </asp:GridView>
  
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False"
         BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px"
