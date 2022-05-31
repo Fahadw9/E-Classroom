@@ -61,6 +61,12 @@
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=3.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Configuration.ConfigurationBuilders.Base, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Configuration.ConfigurationBuilders.Base.2.0.0\lib\Net471\Microsoft.Configuration.ConfigurationBuilders.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Configuration.ConfigurationBuilders.UserSecrets, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Configuration.ConfigurationBuilders.UserSecrets.2.0.0\lib\Net471\Microsoft.Configuration.ConfigurationBuilders.UserSecrets.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Web.Infrastructure, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Web.Infrastructure.2.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
@@ -129,6 +135,9 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Grading.aspx" />
+    <Content Include="Grading_Student.aspx" />
+    <Content Include="Grading_Teacher.aspx" />
     <Content Include="HM_Teacher.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="favicon.ico" />
@@ -165,6 +174,7 @@
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="HM_Student.aspx" />
+    <None Include="Properties\PublishProfiles\DemoWebsiteClassroom - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.0.js" />
     <Content Include="Scripts\jquery-3.6.0.min.js" />
@@ -324,6 +334,27 @@
       <DependentUpon>Attendance.aspx</DependentUpon>
     </Compile>
     <Compile Include="DAL\myDAL.cs" />
+    <Compile Include="Grading.aspx.cs">
+      <DependentUpon>Grading.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Grading.aspx.designer.cs">
+      <DependentUpon>Grading.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Grading_Student.aspx.cs">
+      <DependentUpon>Grading_Student.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Grading_Student.aspx.designer.cs">
+      <DependentUpon>Grading_Student.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Grading_Teacher.aspx.cs">
+      <DependentUpon>Grading_Teacher.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Grading_Teacher.aspx.designer.cs">
+      <DependentUpon>Grading_Teacher.aspx</DependentUpon>
+    </Compile>
     <Compile Include="HM_Teacher.aspx.cs">
       <DependentUpon>HM_Teacher.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -442,7 +473,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
