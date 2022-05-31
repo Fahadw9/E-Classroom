@@ -146,6 +146,7 @@
     <Content Include="Homeworks.aspx" />
     <Content Include="Homeworks_Student.aspx" />
     <Content Include="Homeworks_Teacher.aspx" />
+    <Content Include="Query.aspx" />
     <Content Include="Quizzes.aspx" />
     <Content Include="Quizzes_Student.aspx" />
     <Content Include="Quizzes_Teacher.aspx" />
@@ -399,6 +400,13 @@
     </Compile>
     <Compile Include="Homeworks_Teacher.aspx.designer.cs">
       <DependentUpon>Homeworks_Teacher.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Query.aspx.cs">
+      <DependentUpon>Query.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Query.aspx.designer.cs">
+      <DependentUpon>Query.aspx</DependentUpon>
     </Compile>
     <Compile Include="Quizzes.aspx.cs">
       <DependentUpon>Quizzes.aspx</DependentUpon>
