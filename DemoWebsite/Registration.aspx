@@ -7,7 +7,9 @@
 
         <h3>Each semester you can register upto 5 courses from the list shown below</h3>
         <br>
-
+        <asp:Label ID="Label6" runat="server" Text=""></asp:Label>
+        <br />
+        <br />
         <asp:CheckBox ID="CheckBox1" runat="server" />
         <asp:Label ID="Label1" runat="server" Text="Programming Fundamentals"></asp:Label>
         <br><br>

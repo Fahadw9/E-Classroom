@@ -1,7 +1,8 @@
 ﻿<%@ Page Title="Query" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Query.aspx.cs" Inherits="DemoWebsite.Query" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <p>Grading</p>
+   <h1> Grading </h1>
+    
       <style>
         .list{ border-radius: 5px;
                   border: 2px solid #0000FF;
@@ -10,6 +11,9 @@
     </style>
     <p>
     <br>
+   <asp:Label ID="label0" runat="server"></asp:Label>
+        <br />
+        <br />
   <asp:Label ID="labelId" runat="server">Max Grade</asp:Label>
             <asp:TextBox ID="G1" runat="server" ToolTip="Enter the upper grade range"></asp:TextBox>
             <br><br>

@@ -62,6 +62,7 @@ namespace DemoWebsite
                         }
                         else
                         {
+                            BtnSave.Enabled = false;
                             Label2.Text = "Show Attendance";
                             Label1.Text = "Show Attendance";           
                             DDListClass.Items.Insert(0, new ListItem("--Select Class --", "0"));
@@ -146,6 +147,7 @@ namespace DemoWebsite
                 }
                 else
                 {
+                    BtnSave.Enabled = false;
 
                     DataTable dt = new DataTable();
                     DataColumn dc = new DataColumn("Date", typeof(String));
@@ -178,6 +180,7 @@ namespace DemoWebsite
             {
                 if (Session["usertype"].ToString() == "student")
                 {
+                    BtnSave.Enabled = false;
                     try
                     {
                         Cn.Open();
@@ -214,40 +217,43 @@ namespace DemoWebsite
 
         protected void BtnSave_Click(object sender, EventArgs e)
         {
-            using (SqlConnection Cn = new SqlConnection(connString))
+            if (Session["usertype"].ToString() == "teacher")
             {
-                Cn.Open();
-                String rollno = "";
-                String studentname = "", dateofclass = "", sclass = "", status = "";
-
-                foreach (GridViewRow row in GridView1.Rows)
+                using (SqlConnection Cn = new SqlConnection(connString))
                 {
+                    Cn.Open();
+                    String rollno = "";
+                    String studentname = "", dateofclass = "", sclass = "", status = "";
 
-                    rollno = Convert.ToString(row.Cells[0].Text);
-                    studentname = row.Cells[1].Text;
-                    RadioButton rbtn1 = (row.Cells[1].FindControl("RadioButton1") as RadioButton);
-                    RadioButton rbtn2 = (row.Cells[1].FindControl("RadioButton2") as RadioButton);
-
-                    if (rbtn1.Checked)
+                    foreach (GridViewRow row in GridView1.Rows)
                     {
-                        status = "P";
+
+                        rollno = Convert.ToString(row.Cells[0].Text);
+                        studentname = row.Cells[1].Text;
+                        RadioButton rbtn1 = (row.Cells[1].FindControl("RadioButton1") as RadioButton);
+                        RadioButton rbtn2 = (row.Cells[1].FindControl("RadioButton2") as RadioButton);
+
+                        if (rbtn1.Checked)
+                        {
+                            status = "P";
+
+                        }
+                        else
+                        {
+                            status = "A";
+                        }
+                        dateofclass = DateTime.Now.ToShortDateString();
+                        sclass = DDListClass.SelectedItem.Text;
 
                     }
-                    else
-                    {
-                        status = "A";
-                    }
-                    dateofclass = DateTime.Now.ToShortDateString();
-                    sclass = DDListClass.SelectedItem.Text;
 
+                    str = "INSERT INTO Attendance(attendance_date , course , s_email , classattendance) VALUES('" + dateofclass + "','" + sclass + "','" + rollno + "','" + status + "')";
+                    SqlCommand SQLCMD = new SqlCommand(str, Cn);
+                    SQLCMD.ExecuteScalar();
+                    Cn.Close();
+                    LblMsg.Visible = true;
+                    LblMsg.Text = "Attendance Has Been Saved Successfully";
                 }
-
-                str = "INSERT INTO Attendance(attendance_date , course , s_email , classattendance) VALUES('" + dateofclass + "','" + sclass + "','" + rollno + "','" + status + "')";
-                SqlCommand SQLCMD = new SqlCommand(str, Cn);
-                SQLCMD.ExecuteScalar();
-                Cn.Close();
-                LblMsg.Visible = true;
-                LblMsg.Text = "Attendance Has Been Saved Successfully";
             }
         }
     }

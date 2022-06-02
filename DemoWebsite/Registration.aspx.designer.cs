@@ -7,13 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DemoWebsite
-{
-
-
-    public partial class Registration
-    {
-
+namespace DemoWebsite {
+    
+    
+    public partial class Registration {
+        
+        /// <summary>
+        /// Label6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label6;
+        
         /// <summary>
         /// CheckBox1 control.
         /// </summary>
@@ -22,7 +29,7 @@ namespace DemoWebsite
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox CheckBox1;
-
+        
         /// <summary>
         /// Label1 control.
         /// </summary>
@@ -31,7 +38,7 @@ namespace DemoWebsite
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label1;
-
+        
         /// <summary>
         /// CheckBox2 control.
         /// </summary>
@@ -40,7 +47,7 @@ namespace DemoWebsite
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox CheckBox2;
-
+        
         /// <summary>
         /// Label2 control.
         /// </summary>
@@ -49,7 +56,7 @@ namespace DemoWebsite
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label2;
-
+        
         /// <summary>
         /// CheckBox3 control.
         /// </summary>
@@ -58,7 +65,7 @@ namespace DemoWebsite
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox CheckBox3;
-
+        
         /// <summary>
         /// Label3 control.
         /// </summary>
@@ -67,7 +74,7 @@ namespace DemoWebsite
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label3;
-
+        
         /// <summary>
         /// CheckBox4 control.
         /// </summary>
@@ -76,7 +83,7 @@ namespace DemoWebsite
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox CheckBox4;
-
+        
         /// <summary>
         /// Label4 control.
         /// </summary>
@@ -85,7 +92,7 @@ namespace DemoWebsite
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label4;
-
+        
         /// <summary>
         /// CheckBox6 control.
         /// </summary>
@@ -94,7 +101,7 @@ namespace DemoWebsite
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox CheckBox6;
-
+        
         /// <summary>
         /// Label5 control.
         /// </summary>
@@ -103,7 +110,7 @@ namespace DemoWebsite
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label5;
-
+        
         /// <summary>
         /// Button1 control.
         /// </summary>
