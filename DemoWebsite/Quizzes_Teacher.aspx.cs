@@ -67,6 +67,7 @@ namespace DemoWebsite
                     conn.Parameters.Add("@assesment_type", SqlDbType.VarChar, 15);
                     conn.Parameters.Add("@assesment_name", SqlDbType.VarChar, 30);
                     conn.Parameters.Add("@taken_date", SqlDbType.Date);
+                    conn.Parameters.Add("@link", SqlDbType.VarChar, 100);
                     conn.Parameters.Add("@marks", SqlDbType.Int);
                     conn.Parameters.Add("@total", SqlDbType.Int);
 
@@ -76,6 +77,7 @@ namespace DemoWebsite
                     conn.Parameters["@assesment_type"].Value = "quiz";
                     conn.Parameters["@assesment_name"].Value = Name.Text;
                     conn.Parameters["@taken_date"].Value = Date.Text;
+                    conn.Parameters["@link"].Value = Link.Text;
                     conn.Parameters["@marks"].Value = OMarks.Text;
                     conn.Parameters["@total"].Value = Total.Text;
 

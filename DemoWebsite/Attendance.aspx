@@ -30,7 +30,7 @@
                 <asp:DropDownList ID="DDListClass" runat="server"
                     AutoPostBack="true"                   
                     onselectedindexchanged="DropDownList1_SelectedIndexChanged">
-                   <%-- <asp:ListItem Text="Programming Fundamentals" Value="CS"></asp:ListItem>
+<%--                   <asp:ListItem Text="Programming Fundamentals" Value="CS"></asp:ListItem>
                     <asp:ListItem Text="Calculus 1" Value="CS"></asp:ListItem>
                     <asp:ListItem Text="Physics" Value="CS"></asp:ListItem>
                     <asp:ListItem Text="ICT" Value="CS"></asp:ListItem>

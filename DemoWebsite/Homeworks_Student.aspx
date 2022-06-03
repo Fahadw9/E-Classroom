@@ -50,6 +50,11 @@
                  <asp:Label ID="lb3" runat="server" Text='<%#Bind("taken_date") %>'></asp:Label>  
              </ItemTemplate>  
          </asp:TemplateField>  
+         <asp:TemplateField HeaderText="Link/ Info" HeaderStyle-Width="10%" ItemStyle-Width="10%">
+             <ItemTemplate>  
+                 <asp:Label ID="lb3" runat="server" Text='<%#Bind("link") %>'></asp:Label>  
+             </ItemTemplate>  
+         </asp:TemplateField>  
          <asp:TemplateField HeaderText="Obtained Marks" HeaderStyle-Width="10%" ItemStyle-Width="10%">
              <ItemTemplate>  
                  <asp:Label ID="lb4" runat="server" Text='<%#Bind("marks") %>'></asp:Label>

@@ -52,6 +52,9 @@
     <asp:Label ID="Label7" runat="server" Text="Total"></asp:Label>&nbsp;
     <asp:TextBox ID="Total" runat="server" ToolTip="Enter Total Marks"></asp:TextBox>&nbsp;&nbsp;&nbsp;
 
+    <asp:Label ID="Label8" runat="server" Text="Link"></asp:Label>&nbsp;
+    <asp:TextBox ID="Link" runat="server" ToolTip="Enter Homework Link">example.com</asp:TextBox>&nbsp;&nbsp;&nbsp;
+
     <br><br>
     <asp:Button ID="Button1" Text="Add Homework" runat="server" OnClick="btnSave_Add"/>&nbsp;&nbsp;&nbsp;
     <asp:Button ID="Button2" Text="Remove Homework" runat="server" OnClick="btnSave_Remove"/>&nbsp;&nbsp;&nbsp;
@@ -85,6 +88,11 @@
          <asp:TemplateField HeaderText="Date" HeaderStyle-Width="10%" ItemStyle-Width="10%">
              <ItemTemplate>  
                  <asp:Label ID="lb3" runat="server" Text='<%#Bind("taken_date") %>'></asp:Label>  
+             </ItemTemplate>  
+         </asp:TemplateField>  
+         <asp:TemplateField HeaderText="Link/ Info" HeaderStyle-Width="10%" ItemStyle-Width="10%">
+             <ItemTemplate>  
+                 <asp:Label ID="lb3" runat="server" Text='<%#Bind("link") %>'></asp:Label>  
              </ItemTemplate>  
          </asp:TemplateField>  
          <asp:TemplateField HeaderText="Obtained Marks" HeaderStyle-Width="10%" ItemStyle-Width="10%">

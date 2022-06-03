@@ -36,7 +36,7 @@
     <br />
      <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" 
         BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px"
-        CellPadding="3" CellSpacing="2" >
+        CellPadding="3" CellSpacing="2"  Width = "100%">
         <RowStyle BackColor="#FFF7E7" ForeColor="#8C4510" />
          <Columns>
               <asp:BoundField DataField="Email" HeaderText="Email"
